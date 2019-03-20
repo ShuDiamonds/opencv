@@ -18,12 +18,13 @@ import cv2
 import numpy as np
 
 segmentator = cv2.ximgproc.segmentation.createGraphSegmentation(sigma=0.5, k=300, min_size=1000)
-src = cv2.imread('./lightdesign/03.jpg')
+src = cv2.imread('./lightdesign/02.jpg')
 segment = segmentator.processImage(src)
 
 mask = segment.reshape(list(segment.shape) + [1]).repeat(3, axis=2)
 masked = np.ma.masked_array(src, fill_value=0)
 for i in range(np.max(segment)):
+    print("{0}/{1} process done".format(i,np.max(segment)))
     masked.mask = mask != i
     y, x = np.where(segment == i)
     top, bottom, left, right = min(y), max(y), min(x), max(x)
