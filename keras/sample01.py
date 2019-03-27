@@ -21,6 +21,8 @@ from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 import argparse
 
+import datetime
+import time 
 
 class PlotLosses(Callback):
     '''
