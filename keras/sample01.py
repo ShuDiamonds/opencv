@@ -125,6 +125,7 @@ def main(epochs=5, batch_size=128):
                   optimizer=RMSprop(),
                   metrics=['accuracy'])
 
+    model.save('mymodel.h5')
     print(model.summary())
 
     # callback function
