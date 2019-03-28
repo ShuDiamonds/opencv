@@ -15,7 +15,7 @@ import copy
 def main():
     # 入力画像の読み込み
     #img = cv2.imread("./lightdesign/myroom2.jpg")
-    img = cv2.imread("./lightdesign/05.jpg")
+    img = cv2.imread("./lightdesign/02.jpg")
     img = cv2.resize(img,(640,480) )
     # 方法2(OpenCVで実装)       
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)

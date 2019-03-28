@@ -19,6 +19,7 @@ import numpy as np
 import os
 import shutil
 
+
 import imageio
 gif_images = []
 
@@ -28,13 +29,12 @@ def not_exist_mkdir( output_path ):
 
 
 
-
 if __name__ == '__main__':
     shutil.rmtree("./segment_pic")
     not_exist_mkdir("./segment_pic")
     
     segmentator = cv2.ximgproc.segmentation.createGraphSegmentation(sigma=0.5, k=400, min_size=500)
-    src = cv2.imread('./lightdesign/05.jpg')
+    src = cv2.imread('./lightdesign/03.jpg')
     src = cv2.resize(src,(640,480) )
     segment = segmentator.processImage(src)
 
@@ -55,10 +55,11 @@ if __name__ == '__main__':
         #get gif
         gif_imagesrc = np.where(masked.mask,gray_image,src)
         gif_images.append(gif_imagesrc)
-    
+        
     #save to gif
     imageio.mimsave('segment.gif', gif_images,duration=0.2)
-    
 
     segment = segment*(int(255/segment.max())-1)
     cv2.imwrite('./segment_pic/segment_all.jpg', segment)
+
+    
