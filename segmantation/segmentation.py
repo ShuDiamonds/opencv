@@ -34,7 +34,7 @@ if __name__ == '__main__':
     not_exist_mkdir("./segment_pic")
     
     segmentator = cv2.ximgproc.segmentation.createGraphSegmentation(sigma=0.5, k=400, min_size=500)
-    src = cv2.imread('./lightdesign/03.jpg')
+    src = cv2.imread('./lightdesign/02.jpg')
     src = cv2.resize(src,(640,480) )
     segment = segmentator.processImage(src)
 

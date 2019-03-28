@@ -95,7 +95,7 @@ def segmentation(inputimg):
 def main():
 
     # 入力画像とスクリーントーン画像を取得
-    img = cv2.imread("./lightdesign/myroom.jpg") 
+    img = cv2.imread("./lightdesign/02.jpg") 
     img = cv2.resize(img,(640,480) )
     # ノイズ除去
     dst = cv2.fastNlMeansDenoisingColored(img,None,10,15,7,21)
